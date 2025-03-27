@@ -21,14 +21,14 @@ shows how adding a Convolutional layer to LSTM improves the accuracy.
 
 
 ## Dataset
-Two types of tweets were utilized in order to build the model: random tweets which do not necessarily indicate depression [Sentiment140 data-set on kaggle](https://www.kaggle.com/kazanova/sentiment140) and [depressed tweets](https://github.com/aapoorv-tf/depdetection/tree/master/datasets) which were extracted using the twitter API. Since there are no publicly available twitter data-set that indicates depression, the tweets were extracted according to the linguistic markers indicative of depression such as ”Hopeless”, ”Lonely”, ”Suicide”, ”Antidepressants”, ”Depressed”, etc. 
+Two types of tweets were utilized in order to build the model: random tweets which do not necessarily indicate depression [Sentiment140 data-set on kaggle](https://www.kaggle.com/kazanova/sentiment140) and [depressed tweets](https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/tree/main/datasets) which were extracted using the twitter API. Since there are no publicly available twitter data-set that indicates depression, the tweets were extracted according to the linguistic markers indicative of depression such as ”Hopeless”, ”Lonely”, ”Suicide”, ”Antidepressants”, ”Depressed”, etc. 
 
 ## Visualisation
 Once the Tweets were tokenized, lemmatized and cleaned, it was easy to see the difference between the two datasets
 by creating a word cloud with the cleaned Tweets. With only an abbreviated Twitter
 scraping, the differences between the two datasets were clear: \
-<img alt="Depressed Tweets" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/depressedWordcloud.png" width='400'>
-<img alt="Random Tweets" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/normalWordCloud.png" width='400'>
+<img alt="Depressed Tweets" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/depressedWordcloud.png" width='400'>
+<img alt="Random Tweets" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/normalWordCloud.png" width='400'>
 
 ## Building the Models
 Once the data was fully processed, each word had to be converted into its corresponding
@@ -43,7 +43,7 @@ simple RNN model, second one is LSTM, and the last one is CNN-LSTM (composed of
 a 1D convolutional layer, max pooling layer and LSTM).
 
 ### Simple RNN
-<img alt="Simple RNN model" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/SimpleRNNmodel.png" width='200'>
+<img alt="Simple RNN model" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/SimpleRNNmodel.png" width='200'>
 
 **Table 1:** Simple RNN summmary
 
@@ -59,7 +59,7 @@ Trainable params: 23,425 \
 Non-trainable params: 120,000,300 
 
 ### LSTM
-<img alt="LSTM model" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/LSTMmodel.png" width='200'>
+<img alt="LSTM model" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/LSTMmodel.png" width='200'>
 
 **Table 2:** LSTM summmary
 
@@ -75,7 +75,7 @@ Trainable params: 20,305 \
 Non-trainable params: 120,000,300 
 
 ### CNN-LSTM
-<img alt="CNN-LSTM Model" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/model.png" width='200'>
+<img alt="CNN-LSTM Model" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/model.png" width='200'>
 
 **Table 3:** CNN-LSTM summmary
 
@@ -106,12 +106,12 @@ Once the models were compiled, there are now ready to be trained using the fit()
 Models were trained for 20 epochs before which the training was automatically called
 off since the validation accuracy started to drop from there on. The training and validation accuracy/loss of all the models are compared in the following figures. For the simple RNN model the validation accuracy started from 94.01% on the first epoch and reached 95.90% on the 17th epoch. Validation loss was 0.1765 on first epoch which was reduced to 0.1176 on the last epoch. For LSTM model, the validation accuracy increased from 94.25% to 96.22% in 20 epochs and validation loss reduced from 0.2106 to 0.1077. The final model, CNN-LSTM outperformed the previous models. It managed to reach 96.28% validation accuracy in the 11th epoch with validation loss of 0.1071. Moreover, the overfitting was quite low with training accuracy of 96.56%.
 
-<img alt="Simple RNN Model Acc" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/RNNaccuracy.png" width='250'>
-<img alt="LSTM Model Acc" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/LSTMaccuracy.png" width='250'>
-<img alt="CNN-LSTM Model acc" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/accuracy.png" width='250'>
-<img alt="Simple RNN Model loss" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/RNNloss.png" width='250'>
-<img alt="LSTM Model loss" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/LSTMloss.png" width='250'>
-<img alt="CNN-LSTM Model loss" src="https://github.com/aapoorv-tf/depdetection/blob/master/img/loss.png" width='250'>
+<img alt="Simple RNN Model Acc" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/RNNaccuracy.png" width='250'>
+<img alt="LSTM Model Acc" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/LSTMaccuracy.png" width='250'>
+<img alt="CNN-LSTM Model acc" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/accuracy.png" width='250'>
+<img alt="Simple RNN Model loss" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/RNNloss.png" width='250'>
+<img alt="LSTM Model loss" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/LSTMloss.png" width='250'>
+<img alt="CNN-LSTM Model loss" src="https://github.com/rhythmdhiman/Depression-Detection-on-Twitter-with-hybrid-CNN-LSTM-model/blob/main/img/loss.png" width='250'>
 
 
 Since accuracy is not always the metric to determine how good the model is. Therefore, 3 other metrics, precision, recall and F1-score are also calculated.
